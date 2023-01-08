@@ -4,9 +4,14 @@ let productTotal = 0;
 
 function handleProductChange(product, isIncrease) {
   const productCount = getInputValue(product);
-  const productNewCount = isIncrease ? productCount + 1 : (productCount > 0 ? productCount - 1:0);
+  const productNewCount = isIncrease
+    ? productCount + 1
+    : productCount > 0
+    ? productCount - 1
+    : 0;
   document.getElementById(product + "-count").value = productNewCount;
-  productTotal = productNewCount * (product === "phone" ? phonePrice : casePrice);
+  productTotal =
+    productNewCount * (product === "phone" ? phonePrice : casePrice);
   document.getElementById(product + "-total").innerText = "$" + productTotal;
   calculateTotal();
 }
@@ -29,9 +34,31 @@ function getInputValue(product) {
   const productCount = parseInt(productInput.value);
   return productCount;
 }
+// removing element and update price
+function removeElement(product) {
+  document.getElementById(product + "-display").style.display = "none";
+  document.getElementById(product + "-count").value = 0;
+  document.getElementById(product + "-total").innerText = "$0";
+  calculateTotal();
+}
+// checkout button change the display and open welcome block
+let checkOutBtn = document
+  .getElementById("check-out")
+  .addEventListener("click", function () {
+    let cart = document.getElementById("cart");
+    cart.style.display = "none";
+    document.getElementById("welcome").style.display = "block";
+  });
 
-
-
+// removing element
+//  function removeElement (product) {
+//     document.getElementById(product+"-display").style.display = "none";
+//     // this.remove(event);
+//   };
+// document.getElementById("remove").addEventListener("click", function (event) {
+//   document.getElementById("cart-item").style.display = "none";
+//   // this.remove(event);
+// });
 /*
 
 let phonePrice = 1219;

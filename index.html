@@ -12,15 +12,23 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
       rel="stylesheet"
     />
+    <!-- font awesome icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="style.css" rel="stylesheet" />
   </head>
 
   <body>
     <section>
       <div class="container">
-        <div class="cart">
+        <div id="cart" class="cart">
           <div class="col-md-12 col-lg-10 mx-auto">
-            <div class="cart-item">
+            <div id="phone-display" class="cart-item">
               <div class="row">
                 <div class="col-md-7 center-item">
                   <img src="images/product-1.png" alt="" />
@@ -49,12 +57,17 @@
                     </button>
                   </div>
                   <h5 id="phone-total">$1219</h5>
-                  <img src="images/remove.png" alt="" class="remove-item" />
+                  <img
+                    src="images/remove.png"
+                    alt=""
+                    onclick="removeElement('phone')"
+                    class="remove-item"
+                  />
                 </div>
               </div>
             </div>
 
-            <div class="cart-item">
+            <div id="case-display" class="cart-item">
               <div class="row">
                 <div class="col-md-7 center-item mx-auto">
                   <img src="images/product-2.png" alt="" />
@@ -82,7 +95,12 @@
                     </button>
                   </div>
                   <h5 id="case-total">$59</h5>
-                  <img src="images/remove.png" alt="" class="remove-item" />
+                  <img
+                    src="images/remove.png"
+                    alt=""
+                    onclick="removeElement('case')"
+                    class="remove-item"
+                  />
                 </div>
               </div>
             </div>
@@ -103,11 +121,20 @@
               </div>
             </div>
             <div class="col-md-12 pt-4 pb-4">
-              <button type="button" class="btn btn-success check-out">
+              <button
+                id="check-out"
+                type="button"
+                class="btn btn-success check-out"
+              >
                 Check Out
               </button>
             </div>
           </div>
+        </div>
+
+        <div id="welcome">
+          <h1>Thanks for order</h1>
+          <i class="fa-regular fa-face-laugh-beam"></i>
         </div>
       </div>
     </section>
