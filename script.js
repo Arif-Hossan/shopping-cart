@@ -15,6 +15,7 @@ function handleProductChange(product, isIncrease) {
   document.getElementById(product + "-total").innerText = "$" + productTotal;
   calculateTotal();
 }
+// total calculate
 calculateTotal();
 function calculateTotal() {
   const phoneCount = getInputValue("phone");
