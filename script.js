@@ -1,3 +1,39 @@
+const phonePrice = 1219;
+const casePrice = 59;
+let productTotal = 0;
+
+function handleProductChange(product, isIncrease) {
+  const productCount = getInputValue(product);
+  const productNewCount = isIncrease ? productCount + 1 : (productCount > 0 ? productCount - 1:0);
+  document.getElementById(product + "-count").value = productNewCount;
+  productTotal = productNewCount * (product === "phone" ? phonePrice : casePrice);
+  document.getElementById(product + "-total").innerText = "$" + productTotal;
+  calculateTotal();
+}
+calculateTotal();
+function calculateTotal() {
+  const phoneCount = getInputValue("phone");
+  const caseCount = getInputValue("case");
+  const subTotal = phoneCount * phonePrice + caseCount * casePrice;
+  document.getElementById("sub-total").innerText = "$" + subTotal;
+  // tax 5%
+  const tax = Math.round(subTotal * 0.05);
+  document.getElementById("tax").innerHTML = "$" + tax;
+  // total calculation
+  const total = subTotal + tax;
+  document.getElementById("total").innerText = "$" + total;
+}
+
+function getInputValue(product) {
+  const productInput = document.getElementById(product + "-count");
+  const productCount = parseInt(productInput.value);
+  return productCount;
+}
+
+
+
+/*
+
 let phonePrice = 1219;
 let casePrice = 59;
 let productTotal = 0;
@@ -39,7 +75,7 @@ function getInputValue(product) {
   let productCount = parseInt(productInput.value);
   return productCount;
 }
-
+*/
 // document.getElementById("phone-increase").addEventListener("click", function () {
 //     handleProductChange(true);
 //   });
